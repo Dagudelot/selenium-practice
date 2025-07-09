@@ -1,0 +1,8 @@
+workflow-aggregator
+git
+docker-workflow
+htmlpublisher
+maven-plugin
+junit
+ansicolor
+blueocean

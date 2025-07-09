@@ -1,25 +1,26 @@
 pipeline {
-  agent any
-
+  agent {
+    docker {
+      image 'maven:3.9.6-eclipse-temurin-17'
+      args '-v $HOME/.m2:/root/.m2'
+    }
+  }
   stages {
     stage('Instalar Dependencias') {
       steps {
         sh 'mvn clean install -DskipTests'
       }
     }
-
     stage('Ejecutar Tests') {
       steps {
         sh 'mvn test'
       }
     }
-
     stage('Generar Reporte') {
       steps {
         sh 'mvn verify'
       }
     }
-
     stage('Publicar Reporte HTML') {
       steps {
         publishHTML(target: [

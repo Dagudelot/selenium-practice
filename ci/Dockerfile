@@ -2,9 +2,10 @@ FROM jenkins/jenkins:lts
 
 USER root
 
-# Instala Docker dentro del contenedor
+# Instala Maven dentro del contenedor
 RUN apt-get update && \
-    apt-get install -y docker.io
+    apt-get install -y maven && \
+    rm -rf /var/lib/apt/lists/*
 
 # Instala plugins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt

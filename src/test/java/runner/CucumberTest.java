@@ -1,5 +1,6 @@
 package runner;
 
+import io.cucumber.junit.platform.engine.Constants;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.platform.suite.api.ConfigurationParameter;
@@ -13,9 +14,12 @@ import static io.cucumber.junit.platform.engine.Constants.*;
 @IncludeEngines("cucumber")
 @SelectClasspathResource("features")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "stepdefinitions")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/cucumber-report.html")
 @ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@all")
 @ConfigurationParameter(key = PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME, value = "true")
 @Execution(ExecutionMode.SAME_THREAD)
-public class TestRunner {
+@ConfigurationParameter(
+        key = Constants.PLUGIN_PROPERTY_NAME,
+        value = "pretty, json:target/cucumber.json"
+)
+public class CucumberTest {
 }

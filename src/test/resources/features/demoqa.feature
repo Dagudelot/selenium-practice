@@ -9,7 +9,7 @@ Feature: Interactuar con elementos de la web
     Then la alerta se cierra
 
 
-    @regression @firefox
+    @regression @chrome
   Scenario: Usuario interactua con boton
     Given el usuario navega a la web
     And se dirige a la pestaña de botones

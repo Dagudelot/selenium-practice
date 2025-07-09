@@ -1,0 +1,36 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Instalar Dependencias') {
+      steps {
+        sh 'mvn clean install -DskipTests'
+      }
+    }
+
+    stage('Ejecutar Tests') {
+      steps {
+        sh 'mvn test'
+      }
+    }
+
+    stage('Generar Reporte') {
+      steps {
+        sh 'mvn verify'
+      }
+    }
+
+    stage('Publicar Reporte HTML') {
+      steps {
+        publishHTML(target: [
+          reportName : 'Cucumber Report',
+          reportDir  : 'target/cucumber-report/cucumber-html-reports',
+          reportFiles: 'overview-features.html',
+          keepAll    : true,
+          alwaysLinkToLastBuild: true,
+          allowMissing: false
+        ])
+      }
+    }
+  }
+}

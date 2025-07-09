@@ -10,7 +10,7 @@ pipeline {
 
     stage('Ejecutar Tests') {
       steps {
-        sh 'mvn test'
+        sh 'mvn test -Denv=prod'
       }
     }
 

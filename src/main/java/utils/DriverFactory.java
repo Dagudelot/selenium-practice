@@ -24,6 +24,7 @@ public class DriverFactory {
             if (isRemote) {
                 DesiredCapabilities capabilities = new DesiredCapabilities();
                 capabilities.setBrowserName(browser);
+                System.out.println("Usando gridULR: " + gridUrl);
                 driver.set(new RemoteWebDriver(new URL(gridUrl), capabilities));
             } else {
                 if (browser.equalsIgnoreCase("chrome")) {

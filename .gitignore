@@ -1,1 +1,30 @@
+# Maven
 target/
+
+# Eclipse/IntelliJ IDEA
+*.iml
+.idea/
+*.ipr
+*.iws
+out/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Jenkins workspace artifacts
+/workspace/
+
+# Reportes
+cucumber-report/
+cucumber.json
+*.html
+
+# Environment
+.env
+config*.properties
+!config.qa.properties
+!config.prod.properties

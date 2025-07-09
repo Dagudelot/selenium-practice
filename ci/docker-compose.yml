@@ -24,6 +24,15 @@ services:
     networks:
       - ci_net
 
+  firefox:
+    image: selenium/standalone-firefox:latest
+    container_name: selenium_firefox
+    shm_size: 2gb
+    ports:
+      - "4445:4444"
+    networks:
+      - ci_net
+
 volumes:
   jenkins_home:
 
